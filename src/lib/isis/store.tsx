@@ -100,9 +100,9 @@ const seedHistory = () => {
   const base = [2, 3, 1, 3, 2, 4, 2];
   return days.map((day, i) => ({
     day,
-    Health: base[i],
-    Learning: (base[i] + i) % 3,
-    Mindfulness: (base[i] + 1) % 4,
+    Health: base[i] ?? 0,
+    Learning: ((base[i] ?? 0) + i) % 3,
+    Mindfulness: ((base[i] ?? 0) + 1) % 4,
     Movement: (i + 2) % 4,
   }));
 };
@@ -213,7 +213,7 @@ export function IsisProvider({ children }: { children: ReactNode }) {
     const ranked = [...INTERVENTIONS].sort(
       (a, b) => (scores[b] ?? 1) - (scores[a] ?? 1),
     );
-    return ranked[0];
+    return ranked[0] ?? "movement break";
   }, [scores]);
 
   const forgetPersonalization = useCallback(() => {
