@@ -142,3 +142,19 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes isis-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(4deg); }
+}
+@keyframes isis-breathe {
+  0%, 100% { transform: scale(0.86); opacity: 0.75; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+@keyframes isis-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.5; }
+}
+@keyframes isis-fall {
+  to { transform: translateY(105vh) rotate(540deg); opacity: 0; }
+}
